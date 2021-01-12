@@ -1,7 +1,10 @@
-function NominationsList() {
+function NominationsList(props) {
     return (
-      <div>
-  
+      <div className="nominations">
+        <h4>Your Nominations:</h4>
+          {props.noms.map(nom => (
+            <p>{nom}</p>
+          ))}
       </div>
     );
   }

@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   data: [],
+  nominations: [],
   isFetching: false,
   error: ""
 };
