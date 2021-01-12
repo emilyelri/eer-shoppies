@@ -1,10 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import MovieList from './components/MovieList';
+import NominationsList from './components/NominationsList';
 
 function App() {
   return (
-    <div className="App">
-      Yo, we did it!
+    <div>
+      <MovieList />
+      <NominationsList />
     </div>
   );
 }
