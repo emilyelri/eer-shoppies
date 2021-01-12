@@ -18,7 +18,7 @@ function Movie(props) {
             <div className="info-card">
                 <p>{movie.Title}</p>
                 <p>{movie.Year}</p>
-                <button onClick={handleNominate} disabled={props.nominations.length > 4}>Nominate</button>
+                <button onClick={handleNominate} disabled={props.nominations.length > 4 && !nominated}>{nominated ? "Remove" : "Nominate"}</button>
             </div>
         </div>
     );

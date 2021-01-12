@@ -1,15 +1,14 @@
 import { connect } from "react-redux";
 import { updateNoms } from '../actions';
+import Nomination from './Nomination';
 
 function NominationsList(props) {
+
   return (
-    <div className="nominations">
-      <h4>Your Nominations:</h4>
+    <div className={props.nominations.length > 4 ? "nominations completed" : "nominations"}>
+      <h4>Your Nominations: (click to remove)</h4>
       {props.nominations.map(nom => (
-        <div className='nom-item'>
-          <p>{nom}</p>
-          {/* <p onClick={props.updateNoms(nom, props.nominations)}>⌫</p> */}
-        </div>
+        <Nomination nom={nom} />
       ))}
     </div>
   );

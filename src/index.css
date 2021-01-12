@@ -4,7 +4,7 @@ body {
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 80%;
+  width: 90%;
 }
 
 code {
@@ -37,6 +37,12 @@ code {
   height: 200px;
   margin: 20px 0;
   width: 350px;
+  transition: .2s ease-in-out;
+}
+
+.movie:hover {
+  background-color: #d3deee;
+  transition: .2s ease-in-out;
 }
 
 .poster {
@@ -62,23 +68,46 @@ code {
   border-radius: 10px;
   font-size: .8rem;
   height: 200px;
+  line-height: 15px;
   margin: 20px 0;
-  padding: 0 10px;
+  padding: 5px 20px;
   width: 350px;
+}
+
+.completed {
+  background-color: #fcfcc6;
+  border: 1px dotted red;
 }
 
 .nominations h4 {
   font-size: .9rem;
+  margin-top: -2px;
 }
 
 .secondary {
   display: flex;
+  align-items: center;
 }
 
 .nominated {
   box-shadow: 2px 2px #b119de;
+  background-color: #d3deee;
 }
 
 .nom-item {
   display: flex;
+  margin: -8px;
+  overflow: hidden;
+}
+
+.done {
+  align-items: center;
+  background-color: #fcfcc6;
+  border: 1px dotted red;
+  border-radius: 10px;
+  display: flex;
+  height: 60px;
+  justify-content: flex-start;
+  margin: 0 20px;
+  padding: 0 30px;
 }

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getMovies, updateNoms } from "../actions";
 import NominationsList from './NominationsList';
 import Movie from './Movie';
+import Done from './Done';
 
 function MovieList(props) {
   const apiKey = '903f735a'
@@ -26,19 +27,14 @@ function MovieList(props) {
     }
   };
 
-  const handleNom = (title, e) => {
-    e.preventDefault();
-    console.log("CLICK")
-    props.handleNom(title);
-  }
-
   return (
     <>
       <div className="header">
-        <h1>The Shoppies</h1>
+        <h1>The Shoppies Nominations!</h1>
       </div>
       <div className="secondary">
         <input type='text' name='search_bar' className="search_bar" onChange={fetchMovies} placeholder="Search..." />
+        {props.nominations.length > 4 && <Done />}
       </div>
 
       {props.isFetching && <p className="fetching">Fetching...</p>}
