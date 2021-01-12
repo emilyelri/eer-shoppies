@@ -1,14 +1,15 @@
 import { useState } from 'react';
+import { connect } from "react-redux";
+import { updateNoms } from "../actions";
 
 function Movie(props) {
     const movie = props.movie;
-    const setNoms = props.setNoms;
-    const noms = props.noms;
     const [nominated, setNominated] = useState(false)
 
-    const handleNom = e => {
-        nominated ? setNominated(false) : setNominated(true)
-        nominated ? setNoms(noms.filter(nom => nom != movie.Title)) : setNoms(...noms, movie.Title)
+    const handleNominate = e => {
+        e.preventDefault();
+        setNominated(!nominated);
+        props.updateNoms(movie.Title, props.nominations)
     }
 
     return (
@@ -17,10 +18,20 @@ function Movie(props) {
             <div className="info-card">
                 <p>{movie.Title}</p>
                 <p>{movie.Year}</p>
-                <button onClick={handleNom}>Nominate</button>
+                <button onClick={handleNominate} disabled={props.nominations.length > 4}>Nominate</button>
             </div>
         </div>
     );
 }
 
-export default Movie;
+const mapStateToProps = state => ({
+    data: state.data,
+    nominations: state.nominations,
+    error: state.error,
+    isFetching: state.isFetching
+  });
+  
+  export default connect(
+    mapStateToProps,
+    { updateNoms }
+  )(Movie);

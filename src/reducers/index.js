@@ -1,7 +1,10 @@
 import {
   FETCH_MOVIES_START,
   FETCH_MOVIES_SUCCESS,
-  FETCH_MOVIES_FAIL
+  FETCH_MOVIES_FAIL,
+  CHECK_NOM_PRESENCE,
+  ADDING_NOM,
+  REMOVING_NOM
 } from "../actions/";
 
 const initialState = {
@@ -33,6 +36,18 @@ const movieReducer = (state = initialState, action) => {
         isFetching: false,
         error: action.payload
       };
+      case CHECK_NOM_PRESENCE:
+        return state;
+      case ADDING_NOM:
+        return {
+          ...state,
+          nominations: [...state.nominations, action.payload]
+        };
+      case REMOVING_NOM:
+        return {
+          ...state,
+          nominations: state.nominations.filter(nom => nom != action.payload)
+        };
     default:
       return state;
   }

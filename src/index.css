@@ -58,8 +58,17 @@ code {
 }
 
 .nominations {
-  margin: 0 30px;
-  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: .8rem;
+  height: 200px;
+  margin: 20px 0;
+  padding: 0 10px;
+  width: 350px;
+}
+
+.nominations h4 {
+  font-size: .9rem;
 }
 
 .secondary {
@@ -68,4 +77,8 @@ code {
 
 .nominated {
   box-shadow: 2px 2px #b119de;
+}
+
+.nom-item {
+  display: flex;
 }
