@@ -39,7 +39,7 @@ function MovieList(props) {
 
       {props.isFetching && <p className="fetching">Fetching...</p>}
 
-      {!response && <p>{props.data.Error}</p>}
+      {!response && <div className="error">{props.data.Error}</div>}
       <div className="movie-list">
         <NominationsList />
         {movies.map(movie => (
